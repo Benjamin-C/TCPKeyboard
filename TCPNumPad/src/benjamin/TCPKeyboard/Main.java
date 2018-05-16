@@ -1,4 +1,4 @@
-package tcpNumPad;
+package benjamin.TCPKeyboard;
 
 public class Main {
 
