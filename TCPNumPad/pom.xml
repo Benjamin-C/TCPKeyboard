@@ -2,17 +2,23 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>TCPNumPad</groupId>
   <artifactId>TCPNumPad</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
+  <version>1.0.0</version>
   <build>
     <sourceDirectory>src</sourceDirectory>
     <plugins>
       <plugin>
-        <artifactId>maven-compiler-plugin</artifactId>
-        <version>3.7.0</version>
-        <configuration>
-          <source>1.7</source>
-          <target>1.7</target>
-        </configuration>
+        <groupId>org.apache.maven.plugins</groupId>
+      	<artifactId>maven-jar-plugin</artifactId>
+      	<version>3.0.2</version>
+      	<configuration>
+	        <archive>
+	          <manifest>
+	            <addClasspath>true</addClasspath>
+	            <classpathPrefix>lib/</classpathPrefix>
+	            <mainClass>benjamin.BenTCP.TCPTesterMain</mainClass>
+	          </manifest>
+	        </archive>
+      	</configuration>
       </plugin>
     </plugins>
   </build>
