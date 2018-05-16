@@ -43,7 +43,6 @@ public class NumPad {
 	
 	private JLabel startLabel;
 	
-	private boolean console;
 	public NumPad() {
 		this(new String[] {"", "", ""});
 	}
@@ -71,8 +70,6 @@ public class NumPad {
 		};
 		final Scanner s = new Scanner(System.in);
 		tss = new TCPSetupStream() {
-			
-			private List<String> next = new ArrayList<String>();
 			
 			@Override
 			public void write(String data) {
