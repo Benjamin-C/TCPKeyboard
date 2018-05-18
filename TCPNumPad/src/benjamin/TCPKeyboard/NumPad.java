@@ -49,9 +49,13 @@ public class NumPad {
 	}
 	
 	public NumPad(String ardgs[]) {
-		args = new String[4];//ardgs.length];
-		for(int i = 0; i < Math.min(args.length, ardgs.length); i++) {
-			args[i] = ardgs[i];
+		args = new String[] {"", "", "", ""};
+		for(int i = 0; i < (ardgs.length); i++) {
+			if(ardgs[i] == null) {
+				args[i] = "";
+			} else {
+				args[i] = ardgs[i];
+			}
 		}
 		
 		odr = new TCPOnDataArrival() {
