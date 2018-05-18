@@ -275,7 +275,7 @@ public class NumPad {
 		type.setText("0x" + temp);
 	}
 	public void showCue() {
-		String temp = "";
+		String temp = " ";
 		if(cue.size() > 0) {
 			for(int i = cue.size() - 1; i > cue.size() - 5; i--) {
 				if(i >= 0) {
