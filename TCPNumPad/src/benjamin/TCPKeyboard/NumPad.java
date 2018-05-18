@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -160,21 +161,25 @@ public class NumPad {
 									{backspace(), queue(), send(), clear()}};
 		int maxSize = 0;
 		cue = new ArrayList<Integer>();
-		JPanel mainPanel = new JPanel(new GridLayout(2 + text.length, 2, 0, 0));
+		JPanel mainPanel = new JPanel(new GridLayout(1 + text.length, 2, 0, 0));
 		for(String[] str : text) {
 			maxSize = Math.max(maxSize,  str.length);
 		}
+		JPanel textPanel = new JPanel();
+		textPanel.setLayout(new BoxLayout(textPanel, BoxLayout.Y_AXIS));
 		//JPanel buttonPanel = new JPanel(new GridLayout(text.length, maxSize, 4, 4));
 		Font defFont = new Font("arial", 16, 16);
-		cueLabel = new JLabel(""); cueLabel.setFont(defFont); mainPanel.add(cueLabel);
-		type = new JLabel(TYPE_DEFUALUT_TEXT); type.setFont(defFont); mainPanel.add(type);
+		JLabel ipLabel = new JLabel("Connected to " + ip.getText() + ":" + port.getText()); ipLabel.setFont(new Font("arial", 12, 12)); textPanel.add(ipLabel);
+		cueLabel = new JLabel(" "); cueLabel.setFont(defFont); textPanel.add(cueLabel);
+		type = new JLabel(TYPE_DEFUALUT_TEXT); type.setFont(defFont); textPanel.add(type);
+		mainPanel.add(textPanel);
 		for(int i = 0; i < text.length; i++) {
 			maxSize = Math.max(maxSize, text[i].length);
 			JPanel row = new JPanel(new GridLayout(1, maxSize, 0, 0));
 			for(int j = 0; j < text[i].length; j++) {
 				JButton b=new JButton(text[i][j]); 
 				b.setFont(defFont);
-				b.setPreferredSize(new Dimension(50, 50));
+				b.setPreferredSize(new Dimension(60, 60));
 				b.addActionListener(todo[i][j]);
 				row.add(b);
 			}
